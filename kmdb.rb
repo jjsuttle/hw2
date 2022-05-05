@@ -279,3 +279,15 @@ new_character["actor_id"] =ah["id"]
 new_character["character_name"] = "Selina Kyle"
 new_character.save
 
+wb_movies = Movie.where({"studio_id" => wb ["id"]})
+
+
+puts "MOVIES"
+for movie in wb_movies
+    title = movie["title"]
+    year = movie["year"]
+    mpaa_rating = movie["mpaa_rating"]
+    studio_name = wb["studio_name"]
+    puts "#{title} #{year} #{mpaa_rating} #{studio_name}"
+  end
+
