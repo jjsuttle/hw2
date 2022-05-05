@@ -279,10 +279,14 @@ new_character["actor_id"] =ah["id"]
 new_character["character_name"] = "Selina Kyle"
 new_character.save
 
-wb_movies = Movie.where({"studio_id" => wb ["id"]})
 
 
 puts "MOVIES"
+puts "======"
+puts ""
+
+wb_movies = Movie.where({"studio_id" => wb ["id"]})
+
 for movie in wb_movies
     title = movie["title"]
     year = movie["year"]
@@ -291,3 +295,23 @@ for movie in wb_movies
     puts "#{title} #{year} #{mpaa_rating} #{studio_name}"
   end
 
+
+
+
+  puts ""
+  puts "TOP CAST"
+  puts "========"
+  puts ""
+
+  
+characters = Character.all
+
+for character in characters 
+    actor_id = character["actor_id"]
+    actor_ref = Actor.find_by({"id" => actor_id})
+    actor_name = actor_ref["name"]
+    character_name = character["character_name"]
+    movie_ref = Movie.find_by({"id" => character["movie_id"]})
+    movie_title = movie_ref["title"]
+    puts "#{movie_title} #{actor_name} #{character_name}"
+end
