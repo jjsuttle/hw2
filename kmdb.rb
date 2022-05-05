@@ -94,3 +94,21 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+Studio.destroy_all
+Movie.destroy_all
+
+new_studio = Studio.new
+new_studio["studio_name"] = "Warner Bros."
+new_studio.save
+
+studio = Studio.find_by({ "studio_name" => "Warner Bros." })
+
+new_movie = Movie.new
+new_movie["title"] = "Batman Begins"
+new_movie["year"] = "2005"
+new_movie["mpaa_rating"] = "PG-12"
+new_movie["studio_id"] = studio["id"]
+new_movie.save
+
+
