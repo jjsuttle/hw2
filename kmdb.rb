@@ -97,18 +97,185 @@ puts ""
 
 Studio.destroy_all
 Movie.destroy_all
+Role.destroy_all
+Actor.destroy_all
+Character.destroy_all
 
 new_studio = Studio.new
 new_studio["studio_name"] = "Warner Bros."
 new_studio.save
 
-studio = Studio.find_by({ "studio_name" => "Warner Bros." })
+wb = Studio.find_by({ "studio_name" => "Warner Bros." })
 
 new_movie = Movie.new
 new_movie["title"] = "Batman Begins"
 new_movie["year"] = "2005"
-new_movie["mpaa_rating"] = "PG-12"
-new_movie["studio_id"] = studio["id"]
+new_movie["mpaa_rating"] = "PG-13"
+new_movie["studio_id"] = wb["id"]
 new_movie.save
 
+new_movie = Movie.new
+new_movie["title"] = "The Dark Knight"
+new_movie["year"] = "2008"
+new_movie["mpaa_rating"] = "PG-13"
+new_movie["studio_id"] = wb["id"]
+new_movie.save
+
+new_movie = Movie.new
+new_movie["title"] = "The Dark Knight Rises"
+new_movie["year"] = "2012"
+new_movie["mpaa_rating"] = "PG-13"
+new_movie["studio_id"] = wb["id"]
+new_movie.save
+
+
+new_actor=Actor.new
+new_actor["name"] = "Christian Bale"
+new_actor.save
+
+new_actor=Actor.new
+new_actor["name"] = "Michael Caine"
+new_actor.save
+
+new_actor=Actor.new
+new_actor["name"] = "Liam Neeson"
+new_actor.save
+
+new_actor=Actor.new
+new_actor["name"] = "Katie Holmes"
+new_actor.save
+
+new_actor=Actor.new
+new_actor["name"] = "Gary Oldman"
+new_actor.save
+
+new_actor=Actor.new
+new_actor["name"] = "Heath Ledger"
+new_actor.save
+
+new_actor=Actor.new
+new_actor["name"] = "Aaron Eckhart"
+new_actor.save
+
+new_actor=Actor.new
+new_actor["name"] = "Maggie Gyllenhaal"
+new_actor.save
+
+new_actor=Actor.new
+new_actor["name"] = "Tom Hardy"
+new_actor.save
+
+new_actor=Actor.new
+new_actor["name"] = "Joseph Gordon-Levitt"
+new_actor.save
+
+new_actor=Actor.new
+new_actor["name"] = "Anne Hathaway"
+new_actor.save
+
+bb = Movie.find_by({ "title" => "Batman Begins" })
+tdk = Movie.find_by({ "title" => "The Dark Knight" })
+tdkr = Movie.find_by({ "title" => "The Dark Knight Rises" })
+
+cb = Actor.find_by ({ "name" => "Christian Bale" })
+mc= Actor.find_by ({ "name" => "Michael Caine"})
+ln= Actor.find_by ({ "name" => "Liam Neeson"})
+kh= Actor.find_by ({ "name" => "Katie Holmes"})
+go= Actor.find_by ({ "name" => "Gary Oldman"})
+hl= Actor.find_by ({ "name" => "Heath Ledger"})
+ae= Actor.find_by ({ "name" => "Aaron Eckhart"})
+mg= Actor.find_by ({ "name" => "Maggie Gyllenhaal"})
+th= Actor.find_by ({ "name" => "Tom Hardy"})
+jgl= Actor.find_by ({ "name" => "Joseph Gordon-Levitt"})
+ah= Actor.find_by ({ "name" => "Anne Hathaway"})
+
+new_character=Character.new
+new_character["movie_id"] = bb["id"]
+new_character["actor_id"] =cb["id"]
+new_character["character_name"] = "Bruce Wayne"
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = bb["id"]
+new_character["actor_id"] =mc["id"]
+new_character["character_name"] = "Alfred "
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = bb["id"]
+new_character["actor_id"] =ln["id"]
+new_character["character_name"] = "Ra's Al Ghul"
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = bb["id"]
+new_character["actor_id"] =kh["id"]
+new_character["character_name"] = "Rachel Dawes"
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = bb["id"]
+new_character["actor_id"] =go["id"]
+new_character["character_name"] = "Commissioner Gordon"
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = tdk["id"]
+new_character["actor_id"] =cb["id"]
+new_character["character_name"] = "Bruce Wayne"
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = tdk["id"]
+new_character["actor_id"] =hl["id"]
+new_character["character_name"] = "Joker "
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = tdk["id"]
+new_character["actor_id"] =ae["id"]
+new_character["character_name"] = "Harvey Dent"
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = tdk["id"]
+new_character["actor_id"] =mc["id"]
+new_character["character_name"] = "Alfred "
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = tdk["id"]
+new_character["actor_id"] =mg["id"]
+new_character["character_name"] = "Rachel Dawes"
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = tdkr["id"]
+new_character["actor_id"] =cb["id"]
+new_character["character_name"] = "Bruce Wayne"
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = tdkr["id"]
+new_character["actor_id"] =go["id"]
+new_character["character_name"] = "Commissioner Gordon"
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = tdkr["id"]
+new_character["actor_id"] =th["id"]
+new_character["character_name"] = "Bane "
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = tdkr["id"]
+new_character["actor_id"] =jgl["id"]
+new_character["character_name"] = "John Blake"
+new_character.save
+
+new_character=Character.new
+new_character["movie_id"] = tdkr["id"]
+new_character["actor_id"] =ah["id"]
+new_character["character_name"] = "Selina Kyle"
+new_character.save
 
